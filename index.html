@@ -1,5 +1,25 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <style>
+        /* Styling für den Ladekreis */
+        .loader {
+            border: 8px solid #f3f3f3; /* Lichter Hintergrund */
+            border-top: 8px solid #000; /* Schwarz für die Animation */
+            border-radius: 50%; /* Rund */
+            width: 50px; /* Breite */
+            height: 50px; /* Höhe */
+            animation: spin 1s linear infinite; /* Animation */
+            margin: 20px auto; /* Zentrieren */
+        }
+
+        /* Animation für den Ladekreis */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
 <body>
   
 <h1>Hello World!</h1>
@@ -7,8 +27,11 @@
 <p>You have just reached one end of the internet. Congratulations!</p>
 
 <p>By the moment you have clicked on this website, the download of the whole internet was initialised.</p> 
-  
-<p>As this may take a while, please feel free to have a look at my <a href= "https://github.com/paulrudolfgoepfert/Website/blob/main/CurriculumVitaePaulG%C3%B6pfert%20(Website).pdf">CV</a>.</p>
+
+<!-- Hier wird der Ladekreis hinzugefügt -->
+<div class="loader"></div>
+
+<p>As this may take a while, please feel free to have a look at my <a href="https://github.com/paulrudolfgoepfert/Website/blob/main/CurriculumVitaePaulG%C3%B6pfert%20(Website).pdf">CV</a>.</p>
   
 </body>
 </html>
