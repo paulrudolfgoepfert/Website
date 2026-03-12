@@ -2,21 +2,28 @@
 <html>
 <head>
     <style>
-        /* Styling für den Ladekreis */
-        .loader {
-            border: 8px solid #f3f3f3; /* Lichter Hintergrund */
-            border-top: 8px solid #3498db; /* Schwarz für die Animation */
-            border-radius: 50%; /* Rund */
-            width: 50px; /* Breite */
-            height: 50px; /* Höhe */
-            animation: spin 1s linear infinite; /* Animation */
-            margin: 20px auto; /* Zentrieren */
+        /* Styling für den Ladebalken */
+        .loader-container {
+            background: #f3f3f3;
+            border-radius: 15px; /* Abgerundete Ecken */
+            width: 30%; /* Breite */
+            height: 10px; /* Höhe */
+            overflow: hidden;
+            margin: 20px auto; /* Zentrierung */
         }
 
-        /* Animation für den Ladekreis */
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .loader {
+            background: #000;
+            height: 100%;
+            width: 0;
+            transition: width 0.5s; /* Langsame Animation */
+        }
+
+        /* Optional: Styling für den Text */
+        .percentage {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -26,12 +33,31 @@
   
 <p>You have just reached one end of the internet. Congratulations!</p>
 
-<p>By the moment you have clicked on this website, the download of the whole internet was initialised.</p> 
+<p>By the moment you have clicked on this website, the download of the whole internet was initialized.</p> 
 
-<!-- Hier wird der Ladekreis hinzugefügt -->
-<div class="loader"></div>
+<!-- Hier wird der Ladebalken hinzugefügt -->
+<div class="loader-container">
+    <div class="loader" id="loader"></div>
+</div>
+<div class="percentage" id="percentage">0%</div>
 
-<p>As this may take a while, please feel free to have a look at my <a href="https://paulrudolfgoepfert.github.io/Website/CurriculumVitaePaulG%C3%B6pfert%20(Website).pdf">CV</a>.</p>
+<script>
+    let width = 0;
+    const loader = document.getElementById('loader');
+    const percentageText = document.getElementById('percentage');
+
+    const interval = setInterval(() => {
+        if (width >= 99) {
+            clearInterval(interval);
+        } else {
+            width++;
+            loader.style.width = width + '%';
+            percentageText.innerText = width + '%';
+        }
+    }, 300); // Geschwindigkeit auf langsamer geändert
+</script>
+
+<p>As this may take a while, please feel free to have a look at my <a href="https://github.com/paulrudolfgoepfert/Website/blob/main/CurriculumVitaePaulG%C3%B6pfert%20(Website).pdf">CV</a>.</p>
   
 </body>
 </html>
